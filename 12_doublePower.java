@@ -31,3 +31,21 @@ public class Solution {
         }
         return exponent > 0 ? result:1/result;
   }
+//法三：python
+class Solution:
+    def Power(self, base, exp):
+        # write code here
+        if exp < 1:
+            return 1 / self.getPower(base, -exp)
+        else:
+            return self.getPower(base, exp)
+    def getPower(self, base, exp):
+        if exp == 0:
+            return 1
+        elif exp == 1:
+            return base
+        res = self.Power(base, exp >> 1)
+        res *= res
+        if exp & 1 == 1:
+            res *= base
+        return res
