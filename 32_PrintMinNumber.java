@@ -69,3 +69,4 @@ class Solution:
         numbers = list(map(str, numbers))
         numbers.sort(cmp=lambda x, y: cmp(x + y, y + x))
         return "".join(numbers).lstrip('0') or'0'
+        //去掉第一个0再拼接或为0；
