@@ -55,3 +55,14 @@ public class Solution {
         return -1;
     }
 }
+//python
+# -*- coding:utf-8 -*-
+from collections import Counter//python2.7可能没有Counter
+class Solution:
+    def FirstNotRepeatingChar(self, s):
+        # write code here
+        if not s: return -1
+        count = Counter(s)
+        for i, c in enumerate(s):
+            if count(c) == 1:
+                return i
