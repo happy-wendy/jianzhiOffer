@@ -1,6 +1,52 @@
+//利用环，两个指针遍历两个链表，值相等的时候及为相交节点
+public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        ListNode cur1 = pHead1;
+        ListNode cur2 = pHead2;
+        while (cur1 != null || cur2 != null) {
+            if ( cur1 != null) {
+                cur1 = cur1.next;
+            }
+            else {
+                pHead2 = pHead2.next;
+            }
+            if ( cur2 != null) {
+                cur2 = cur2.next;
+            }
+            else {
+                pHead1 = pHead1.next;
+            }
+        }
+        while (pHead1 != pHead2) {
+            pHead1 = pHead1.next;
+            pHead2 = pHead2.next;
+        }
+        return pHead1;
+    }
 //方法一：运用HashMap的特性
 import java.util.HashMap;
-public class Solution {
+public class Solution {public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        ListNode cur1 = pHead1;
+        ListNode cur2 = pHead2;
+        while (cur1 != null || cur2 != null) {
+            if ( cur1 != null) {
+                cur1 = cur1.next;
+            }
+            else {
+                pHead2 = pHead2.next;
+            }
+            if ( cur2 != null) {
+                cur2 = cur2.next;
+            }
+            else {
+                pHead1 = pHead1.next;
+            }
+        }
+        while (pHead1 != pHead2) {
+            pHead1 = pHead1.next;
+            pHead2 = pHead2.next;
+        }
+        return pHead1;
+    }
     public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
         ListNode current1 = pHead1;
         ListNode current2 = pHead2;
