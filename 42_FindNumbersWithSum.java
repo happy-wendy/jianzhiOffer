@@ -20,3 +20,23 @@ public ArrayList<Integer> FindNumbersWithSum(int [] array,int sum) {
         return arr;
     }
 }
+//HashMap
+import java.util.ArrayList;
+import java.util.HashMap;
+public class Solution {
+    public ArrayList<Integer> FindNumbersWithSum(int [] array,int sum) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int i=0; i<array.length; i++){
+            map.put(array[i],i);
+        }
+        for(int i=0; i<array.length; i++){
+            if(map.containsKey(sum - array[i])){
+               arr.add(array[i]);
+               arr.add(sum - array[i]);
+               break;
+            }
+        }
+        return arr;
+    }
+}
