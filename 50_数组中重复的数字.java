@@ -20,7 +20,7 @@ public boolean duplicate(int numbers[],int length,int [] duplication) {
                 sb.append(numbers[i] + "");
             }
         for(int j = 0; j < length; j++){
-            if(sb.indexOf(numbers[j]+"") != sb.lastIndexOf(numbers[j]+"")){
+            if(sb.indexOf(numbers[j]+"") != sb.lastIndexOf(numbers[j]+"")){//子字符串最先和最后出现的位置相等说明只出现了一次，indexf没出现返回-1
                 duplication[0] = numbers[j];
                 return true;
             }
