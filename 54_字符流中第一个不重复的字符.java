@@ -15,7 +15,7 @@ public class Solution {
         else{
             map.put(ch,1);
         }
-        list.add(ch);
+        list.add(ch);//用于遍历；
     }
   //return the first appearence once char in current stringstream
     public char FirstAppearingOnce()
@@ -28,5 +28,29 @@ public class Solution {
             }
         }
         return c;
+    }
+}
+//02用数组
+public class Solution {
+    int []countArr = new int[128];
+    List<Character> charList = new ArrayList<Character>();
+
+    //Insert one char from stringstream
+    public void Insert(char ch){
+        countArr[ch] ++;
+        if (countArr[ch] == 1) {
+            charList.add(ch);
+        } else {
+            charList.remove((Character)ch);
+        }
+    }
+
+    //return the first appearence once char in current stringstream
+    public char FirstAppearingOnce(){
+        if (charList.size() == 0) {//是一个出现次数为1的字符链表；
+            return '#';
+        } else {
+            return charList.get(0);
+        }
     }
 }
