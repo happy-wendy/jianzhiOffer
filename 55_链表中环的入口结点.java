@@ -1,4 +1,19 @@
-//01快慢指针法
+//01用链表将遍历过的结点存起来，出现过的点则为入口点
+public ListNode EntryNodeOfLoop(ListNode pHead){
+    ListNode targetNode = new ListNode(3);
+    if (pHead == null || pHead.next == null) {
+        return null;
+    }
+    List<ListNode> nodesList = new ArrayList<ListNode>();
+    nodesList.add(pHead);
+    targetNode = pHead.next;
+    while (!nodesList.contains(targetNode)) {
+        nodesList.add(targetNode);
+        targetNode = targetNode.next;
+    }
+    return targetNode;
+}
+//02快慢指针法
 //在相遇时，让一个指针在相遇点出发，另一个指针在链表首部出发，然后两个指针一次走一步，当它们相遇时，就是环的入口处。
 public class Solution {
     public ListNode EntryNodeOfLoop(ListNode pHead)
@@ -24,7 +39,7 @@ public class Solution {
         return null;
     }
 }
-//02断链法(修改了链表)
+//03断链法(修改了链表)
 public ListNode EntryNodeOfLoop(ListNode pHead)
     {
         if(pHead==null|| pHead.next==null) return null;
