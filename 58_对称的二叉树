@@ -1,0 +1,20 @@
+//递归：第一棵树的左结点和第二棵树的右结点相比较&&第一棵树的右结点和第二棵树的左结点相比较。
+public class Solution {
+    boolean isSymmetrical(TreeNode pRoot)
+    {
+        return isSymmetrical(pRoot, pRoot);
+    }
+    private boolean isSymmetrical(TreeNode pRoot1,TreeNode pRoot2){
+        if(pRoot1 == null && pRoot2 == null){
+            return true;
+        }
+        if(pRoot1 == null || pRoot2 == null){
+            return false;
+        }
+        if(pRoot1.val != pRoot2.val){
+            return false;
+        }
+        //第一棵树使用前序遍历，第二棵树使用对称前序遍历（根，右子树，左子树）
+        return isSymmetrical(pRoot1.left, pRoot2.right) && isSymmetrical(pRoot1.right, pRoot2.left);
+    }
+}
